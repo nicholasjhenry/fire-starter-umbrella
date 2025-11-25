@@ -1,5 +1,6 @@
 # 🔥 FireStarter
 
+<!-- fire_starter:start -->
 ---
 
 A starter application template for a Phoenix Umbella project. What do you get?
@@ -32,6 +33,7 @@ A starter application template for a Phoenix Umbella project. What do you get?
 🚧 Remove the above documentation when using for your own application.
 
 ---
+<!-- fire_starter:end -->
 
 ## Applications
 

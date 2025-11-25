@@ -176,9 +176,35 @@ defmodule Mix.Tasks.FsNew.Rename do
       "apps/*/.gitignore"
     ]
 
-    Enum.reduce(globs, igniter, fn glob, acc ->
-      update_files_by_glob(acc, glob, names)
+    igniter
+    |> remove_readme_gated_content()
+    |> then(fn acc ->
+      Enum.reduce(globs, acc, fn glob, inner_acc ->
+        update_files_by_glob(inner_acc, glob, names)
+      end)
     end)
+  end
+
+  # Remove content between <!-- fire_starter:start --> and <!-- fire_starter:end --> gates
+  defp remove_readme_gated_content(igniter) do
+    readme_path = "README.md"
+
+    if File.exists?(readme_path) do
+      Igniter.update_file(igniter, readme_path, fn source ->
+        content = Rewrite.Source.get(source, :content)
+
+        updated_content =
+          Regex.replace(
+            ~r/<!-- fire_starter:start -->.*<!-- fire_starter:end -->\n?/s,
+            content,
+            ""
+          )
+
+        Rewrite.Source.update(source, :content, updated_content)
+      end)
+    else
+      igniter
+    end
   end
 
   # Helper function to update files by glob pattern
