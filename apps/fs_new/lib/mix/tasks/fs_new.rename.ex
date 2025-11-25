@@ -35,6 +35,7 @@ defmodule Mix.Tasks.FsNew.Rename do
   1. Run `mix setup`
   2. Update git remote URL if needed
   3. Run `mix test` to verify everything works
+  4. `rm -r apps/fs_new`
   """
 
   @impl Igniter.Mix.Task
@@ -274,6 +275,7 @@ defmodule Mix.Tasks.FsNew.Rename do
     1. Run `mix setup`
     2. Update git remote URL if needed
     3. Run `mix test` to verify everything works
+    4. `rm -r apps/fs_new`
 
     🔍 What was updated:
     - All Elixir source files (.ex, .exs)
