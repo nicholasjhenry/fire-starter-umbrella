@@ -266,8 +266,7 @@ defmodule Mix.Tasks.FsNew.Rename do
   defp snake_to_pascal(snake_case) do
     snake_case
     |> String.split("_")
-    |> Enum.map(&String.capitalize/1)
-    |> Enum.join("")
+    |> Enum.map_join(&String.capitalize/1)
   end
 
   # Rename directories using git mv (or regular mv as fallback)
@@ -278,9 +277,7 @@ defmodule Mix.Tasks.FsNew.Rename do
     # Get all apps directories except fs_new (this task's directory)
     dirs_to_rename =
       File.ls!("apps")
-      |> Enum.filter(fn dir ->
-        dir != "fs_new" && String.starts_with?(dir, old_snake)
-      end)
+      |> Enum.filter(&(&1 != "fs_new" && String.starts_with?(&1, old_snake)))
       |> Enum.map(fn dir ->
         new_dir = String.replace(dir, old_snake, new_snake)
         {"apps/#{dir}", "apps/#{new_dir}"}
@@ -290,30 +287,38 @@ defmodule Mix.Tasks.FsNew.Rename do
       Mix.shell().info("\n⏭️  No directories to rename")
     else
       Mix.shell().info("\n🔄 Renaming directories...")
-
-      Enum.each(dirs_to_rename, fn {old_dir, new_dir} ->
-        if File.exists?(old_dir) do
-          # Try git mv first (to preserve history), fall back to regular mv
-          case System.cmd("git", ["mv", old_dir, new_dir], stderr_to_stdout: true) do
-            {_output, 0} ->
-              Mix.shell().info("  ✅ Renamed: #{old_dir} → #{new_dir} (with git)")
-
-            {_output, _} ->
-              # Git failed, try regular mv
-              case File.rename(old_dir, new_dir) do
-                :ok ->
-                  Mix.shell().info("  ✅ Renamed: #{old_dir} → #{new_dir}")
-
-                {:error, reason} ->
-                  Mix.shell().error("  ❌ Failed to rename #{old_dir}: #{inspect(reason)}")
-              end
-          end
-        else
-          Mix.shell().info("  ⏭️  Skipped: #{old_dir} (doesn't exist)")
-        end
-      end)
-
+      Enum.each(dirs_to_rename, &rename_directory/1)
       Mix.shell().info("\n✅ Directory renaming complete!")
+    end
+  end
+
+  defp rename_directory({old_dir, new_dir}) do
+    cond do
+      !File.exists?(old_dir) ->
+        Mix.shell().info("  ⏭️  Skipped: #{old_dir} (doesn't exist)")
+
+      git_mv_success?(old_dir, new_dir) ->
+        Mix.shell().info("  ✅ Renamed: #{old_dir} → #{new_dir} (with git)")
+
+      true ->
+        fallback_rename(old_dir, new_dir)
+    end
+  end
+
+  defp git_mv_success?(old_dir, new_dir) do
+    case System.cmd("git", ["mv", old_dir, new_dir], stderr_to_stdout: true) do
+      {_output, 0} -> true
+      {_output, _} -> false
+    end
+  end
+
+  defp fallback_rename(old_dir, new_dir) do
+    case File.rename(old_dir, new_dir) do
+      :ok ->
+        Mix.shell().info("  ✅ Renamed: #{old_dir} → #{new_dir}")
+
+      {:error, reason} ->
+        Mix.shell().error("  ❌ Failed to rename #{old_dir}: #{inspect(reason)}")
     end
   end
 
@@ -340,37 +345,35 @@ defmodule Mix.Tasks.FsNew.Rename do
   # Recursively rename files and directories within a given directory
   defp rename_within_directory(dir_path, old_name, new_name) do
     File.ls!(dir_path)
-    |> Enum.each(fn item ->
-      old_path = Path.join(dir_path, item)
+    |> Enum.reject(&(&1 in ["_build", "deps", ".git"]))
+    |> Enum.each(&rename_item(dir_path, &1, old_name, new_name))
+  end
 
-      # Skip certain directories
-      if item in ["_build", "deps", ".git"] do
-        :skip
-      else
-        # Check if this item needs to be renamed
-        if String.contains?(item, old_name) do
-          new_item = String.replace(item, old_name, new_name)
-          new_path = Path.join(dir_path, new_item)
+  defp rename_item(dir_path, item, old_name, new_name) do
+    old_path = Path.join(dir_path, item)
 
-          case File.rename(old_path, new_path) do
-            :ok ->
-              Mix.shell().info("  ✅ Renamed: #{old_path} → #{new_path}")
+    if String.contains?(item, old_name) do
+      rename_and_recurse(old_path, dir_path, item, old_name, new_name)
+    else
+      maybe_recurse(old_path, old_name, new_name)
+    end
+  end
 
-              # If it's a directory, recurse into it with the new path
-              if File.dir?(new_path) do
-                rename_within_directory(new_path, old_name, new_name)
-              end
+  defp rename_and_recurse(old_path, dir_path, item, old_name, new_name) do
+    new_item = String.replace(item, old_name, new_name)
+    new_path = Path.join(dir_path, new_item)
 
-            {:error, reason} ->
-              Mix.shell().error("  ❌ Failed to rename #{old_path}: #{inspect(reason)}")
-          end
-        else
-          # Item doesn't need renaming, but recurse if it's a directory
-          if File.dir?(old_path) do
-            rename_within_directory(old_path, old_name, new_name)
-          end
-        end
-      end
-    end)
+    case File.rename(old_path, new_path) do
+      :ok ->
+        Mix.shell().info("  ✅ Renamed: #{old_path} → #{new_path}")
+        maybe_recurse(new_path, old_name, new_name)
+
+      {:error, reason} ->
+        Mix.shell().error("  ❌ Failed to rename #{old_path}: #{inspect(reason)}")
+    end
+  end
+
+  defp maybe_recurse(path, old_name, new_name) do
+    if File.dir?(path), do: rename_within_directory(path, old_name, new_name)
   end
 end
