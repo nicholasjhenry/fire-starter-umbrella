@@ -48,7 +48,7 @@ defmodule FireStarter.MixProject do
       {:swoosh, "~> 1.16"},
       {:req, "~> 0.5"},
       {:ecto_erd, "~> 0.6.4", only: [:dev]},
-      {:ex_doc, "~> 0.38.1", only: [:dev]}
+      {:ex_doc, "~> 0.38", only: [:dev]}
     ]
   end
 
