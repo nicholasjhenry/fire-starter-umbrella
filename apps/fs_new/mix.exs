@@ -25,7 +25,8 @@ defmodule FsNew.MixProject do
 
   defp aliases do
     [
-      setup: []
+      setup: [],
+      docs: []
     ]
   end
 
