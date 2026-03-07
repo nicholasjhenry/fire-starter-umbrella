@@ -1,9 +1,10 @@
 # Feature Specification: [FEATURE NAME]
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
-**Status**: Draft  
+**Feature Branch**: `[###-feature-name]`
+**Created**: [DATE]
+**Status**: Draft
 **Input**: User description: "$ARGUMENTS"
+**Applicable Skills**: [List skills consulted before drafting this spec — see Constitution Principle I]
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -118,6 +119,14 @@
 ## Failure Modes & Observability *(mandatory)*
 
 - [Describe expected failure scenarios, logging, trace context, alerting rules, and how timeouts or circuit breakers will be verified]
+
+## Security & Privacy *(mandatory)*
+
+- **Input Validation**: [Describe what user-supplied inputs exist and how they will be sanitized]
+- **Auth/Authz**: [Describe authentication and authorization checks at each entry point; default-deny policy]
+- **Web Vulnerability Protections**: [CSRF, XSS, injection — which framework mechanisms will be used]
+- **PII Handling**: [What personal data is collected, encryption at rest/in transit, retention policy]
+- **Security Test Cases**: [List security-focused tests — unauthorized access, privilege escalation, malformed input]
 
 ## Success Criteria *(mandatory)*
 

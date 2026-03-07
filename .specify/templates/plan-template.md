@@ -29,14 +29,16 @@
 
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design. See [Merge Gates](constitution.md#merge-gates) for enforcement details.*
 
 - [ ] Tests-first plan documented: list the failing unit and integration tests that will be authored before any implementation.
 - [ ] Cross-boundary interactions enumerated with required integration tests and supporting data setup.
 - [ ] Dependencies, configuration changes, and feature contracts documented explicitly; no hidden coupling.
 - [ ] Failure handling strategy captured for each external dependency (timeouts, retries, structured logging).
-- [ ] Demo data additions planned for priv/repo/seeds.exs so manual verification remains possible.
-- [ ] Skill-driven implementation planned: required skills identified for this feature (list them: ___). Task-level skill assignment will use patterns from `~/.claude/skills/*/SKILL.md` frontmatter.
+- [ ] Security & privacy reviewed: input validation, auth/authz checks, CSRF/XSS protections, PII handling, and security-focused test cases planned for each user story.
+- [ ] Demo data additions planned for seed data so manual verification remains possible.
+- [ ] Skill-driven implementation planned: required skills identified for this feature (list them: ___). Task-level skill assignment uses skill frontmatter patterns.
+- [ ] Pre-commit validation command identified and documented (see `conventions.md` for project-specific tooling).
 
 ## Project Structure
 
