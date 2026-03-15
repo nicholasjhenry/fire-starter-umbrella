@@ -22,7 +22,8 @@ defmodule FireStarter.Umbrella.MixProject do
       # Docs
       name: "FireStarter",
       source_url: "https://github.com/nicholasjhenry/fire-starter-umbrella",
-      docs: &docs/0
+      docs: &docs/0,
+      usage_rules: usage_rules()
     ]
   end
 
@@ -85,11 +86,7 @@ defmodule FireStarter.Umbrella.MixProject do
         "docs --formatter html --warnings-as-errors",
         "cmd mix docs --formatter html --warnings-as-errors"
       ],
-      "docs.open": &open_docs/1,
-      "usage_rules.update": [
-        # --all - Gather usage rules from all dependencies that have them (includes both main rules and all sub-rules)
-        "usage_rules.sync ./AGENTS.md --all --inline usage_rules:all --link-to-folder deps"
-      ]
+      "docs.open": &open_docs/1
     ]
   end
 
@@ -125,4 +122,17 @@ defmodule FireStarter.Umbrella.MixProject do
   end
 
   defp apps, do: File.ls!("./apps") |> Enum.map(&String.to_atom/1)
+
+  defp usage_rules do
+    # Example for those using claude.
+    [
+      file: "CLAUDE.md",
+      usage_rules: [{:usage_rules, sub_rules: []}],
+      skills: [
+        location: ".claude/skills",
+        # build skills that combine multiple usage rules
+        build: []
+      ]
+    ]
+  end
 end
