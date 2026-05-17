@@ -23,3 +23,14 @@ erl_crash.dump
 /tmp/
 
 /plts
+
+# Ignore agent local artifacts
+
+.claude/settings.local.json
+.claude/**/*.local.json
+.claude/**/*.local.md
+CLAUDE.local.md
+
+# Ignore agent runtime artifacts
+.claude/cache/
+.claude/tmp/
