@@ -1,0 +1,626 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "f4e42cb4f75106a43add46e03d3599bb28fd46b2",
+  "generatedAt": "2026-05-28T23:28:26.153Z",
+  "files": {
+    ".claude/commands/speckit.analyze.md": {
+      "filePath": ".claude/commands/speckit.analyze.md",
+      "contentHash": "914952d3b174e00490d4736c976438088b2266bb4713224976211a085501c37f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 185,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.checklist.md": {
+      "filePath": ".claude/commands/speckit.checklist.md",
+      "contentHash": "3bfb97f3286265a75f7f9321e79a3d31130a5be213013662fa2e43f22199942a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 296,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.clarify.md": {
+      "filePath": ".claude/commands/speckit.clarify.md",
+      "contentHash": "02df95961ca9ff34e4fd2239e886347285ff34a7b552ebcef2c7fbf1ca8079ff",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 182,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.constitution.md": {
+      "filePath": ".claude/commands/speckit.constitution.md",
+      "contentHash": "89e14df67db5f8a52b8802a6e396b69d3e4badc46e97de804810aaaf439e0d5e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.implement.md": {
+      "filePath": ".claude/commands/speckit.implement.md",
+      "contentHash": "1ba1447621b19b322a57b0a592d8d0a68c14ccebdcf25d606cb21befb75d0549",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 136,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.plan.md": {
+      "filePath": ".claude/commands/speckit.plan.md",
+      "contentHash": "f57498330b6b231c67a0175200dc13843f87d3dcc251b78c50ec1eaef7f43ca8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 91,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.specify.md": {
+      "filePath": ".claude/commands/speckit.specify.md",
+      "contentHash": "fa45bf92a16197b6179fe8fd4e0f1ca613a8ef3cf0cbe84f07fa46a465861fbf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 259,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.tasks.md": {
+      "filePath": ".claude/commands/speckit.tasks.md",
+      "contentHash": "c3ed1232a0e4482689a5fda8f8d522859bfac1f686c0c99cc4fc9a42cc119ec6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 138,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/commands/speckit.taskstoissues.md": {
+      "filePath": ".claude/commands/speckit.taskstoissues.md",
+      "contentHash": "23f5098f197d2d3512907276c466a4e03b27619721cee85361f30b21289431da",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/launch.json": {
+      "filePath": ".claude/launch.json",
+      "contentHash": "1b3dd5fc15c2bf9c2169e64dd5ebb2303f6ac9e0f30c5e85879cbea3c438e499",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    ".formatter.exs": {
+      "filePath": ".formatter.exs",
+      "contentHash": "c755e8e8f51760d9d6179810e0e7362781e972c274f4812d872d51ac8b68c3b2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "a121b0074340b8a1da27f2f38ecafe004c39c6380df8e974726b6d31fab5724f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": false
+    },
+    "AGENTS.md": {
+      "filePath": "AGENTS.md",
+      "contentHash": "134af0001f8bd98b91b1f481dd273a72fb225de946882a62c8a7f7c48429719c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 334,
+      "hasStructuralAnalysis": true
+    },
+    "apps/fire_starter_web/.formatter.exs": {
+      "filePath": "apps/fire_starter_web/.formatter.exs",
+      "contentHash": "5bca5995458e26d5e54ae02427043a2749d57f0b64cedbb01d905003c796cf20",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/assets/css/app.css": {
+      "filePath": "apps/fire_starter_web/assets/css/app.css",
+      "contentHash": "183456405cddc254b4304f9a150a566334ddf64436ad7c5da09337d600543265",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 106,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/assets/js/app.js": {
+      "filePath": "apps/fire_starter_web/assets/js/app.js",
+      "contentHash": "d0b0daee58826a2aa8d8be1aa0f7a571d5d9daaf0705b21cbb9c188f3f2b5b9f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "phoenix_html",
+          "specifiers": []
+        },
+        {
+          "source": "phoenix",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "phoenix_live_view",
+          "specifiers": [
+            "LiveSocket"
+          ]
+        },
+        {
+          "source": "phoenix-colocated/fire_starter_web",
+          "specifiers": [
+            "colocatedHooks"
+          ]
+        },
+        {
+          "source": "../vendor/topbar",
+          "specifiers": [
+            "topbar"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 84,
+      "hasStructuralAnalysis": true
+    },
+    "apps/fire_starter_web/assets/tsconfig.json": {
+      "filePath": "apps/fire_starter_web/assets/tsconfig.json",
+      "contentHash": "36cc1cdb1dd7661efa8ecfe0d06f5eb075951b1cdf5f43eca8fb68ea99d36fc3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "apps/fire_starter_web/lib/fire_starter_web.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web.ex",
+      "contentHash": "a8b2272bd63796d642784875a705ff847ce9e1ea890103428594ffb72d4153b4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 115,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/application.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/application.ex",
+      "contentHash": "866ff41ec7df6d7aff0caafaed9b63434667a4c85360e581ca79ecf664566348",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "contentHash": "6f306bb19387d9357dfc140c14813256b03a735122f7a59e9cb8c80704684881",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 473,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "contentHash": "76365ad7d6dc04acab8981d0617b157966e1642881c893b4e1a380158a9b0561",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 155,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex",
+      "contentHash": "ac3651680cb8c00fdfb8961993a20d988e62306d23eef947d625ca1fdd0bc804",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+      "contentHash": "e2f62439a7824202b1eb4f8d66b66a5e448aa3865abeabf10228cc6e1df0e858",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+      "contentHash": "fd77303af41fe7a8e87188abd058d9dd7365b2adb4a19196c03efb4b7efa76c6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+      "contentHash": "8560c3809dd99c3199f79886acb68d026f058b171d642839825617a963852302",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+      "contentHash": "89f9a24d7dbab44148e63ce57f810ed3be95c1e4d42d23e95572d7abe27838dd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex",
+      "contentHash": "0b71a918a62b68199434c21155677c73c808d04462731d66faf1678e127b3f8f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 203,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/endpoint.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "contentHash": "046502020e5cefb31d91b5ead5dd75c48dc4ed08d5cf9c483a971bc2471badb6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 55,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/gettext.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+      "contentHash": "45072b664460ffe19dcb6f00c5c354589543be23458fed2b8bf2ff995b68a49e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/router.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "contentHash": "298d7dd1f2257354d26ec92a3b3bb446e0a500a27dea2ba79c263073ea08a533",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/lib/fire_starter_web/telemetry.ex": {
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+      "contentHash": "aeb7208cfdb372a4a8e60b3c3cb7f68936d2e06d694c03955ebefa5ee7f8c45b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 94,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/mix.exs": {
+      "filePath": "apps/fire_starter_web/mix.exs",
+      "contentHash": "a3d9ff237eb124c294817e6e77f084706eeb318c5b607f8b2a7929517237743b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 83,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/priv/gettext/en/LC_MESSAGES/errors.po": {
+      "filePath": "apps/fire_starter_web/priv/gettext/en/LC_MESSAGES/errors.po",
+      "contentHash": "7965ec884cd9c0dd4f13b268b485e1e3edc13d8f2574eee6f11b35bf3175d05b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 113,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/priv/gettext/errors.pot": {
+      "filePath": "apps/fire_starter_web/priv/gettext/errors.pot",
+      "contentHash": "e2ba1a9a3fd94ac18f7d60d8a03fdfcd0c306aa7b34c5c679f10d356fa42d358",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 110,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/priv/static/robots.txt": {
+      "filePath": "apps/fire_starter_web/priv/static/robots.txt",
+      "contentHash": "f994bfae2c1db1221ac049f1097776b444048e0b0a7705d33ea511b610bed115",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/README.md": {
+      "filePath": "apps/fire_starter_web/README.md",
+      "contentHash": "cc6559f22c288590bada9f5d957db4bab418e7da839ce247b9619c39f2e67fa1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs": {
+      "filePath": "apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs",
+      "contentHash": "a2caa15ff313888d608b3be6fb99349d2375a2cc89a63f9668e432827e01c571",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs": {
+      "filePath": "apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs",
+      "contentHash": "27d1716a7d84fd2c6e0c60727577e44b779a582fae6edda1f3a22674e9f45381",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/test/fire_starter_web/controllers/page_controller_test.exs": {
+      "filePath": "apps/fire_starter_web/test/fire_starter_web/controllers/page_controller_test.exs",
+      "contentHash": "dbf2eabdfbe309e6e52c6ce0a98d60ace1c73d39a4e254d0f13908d62b7f49fa",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/test/support/conn_case.ex": {
+      "filePath": "apps/fire_starter_web/test/support/conn_case.ex",
+      "contentHash": "d176fd1d5a75f85ab8fb0c6bd3e43bfcee8f31cd1aaf751df974a15517fb79cc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter_web/test/test_helper.exs": {
+      "filePath": "apps/fire_starter_web/test/test_helper.exs",
+      "contentHash": "3458885791357205db5dbf63025f3b33ef8ebe61c6791ce854e74d241f06e419",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/.formatter.exs": {
+      "filePath": "apps/fire_starter/.formatter.exs",
+      "contentHash": "635e7b7d3a7d3914d4e3e4de38977e18bccc2dde16c09ffdd13cb292c7eb88e0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/lib/fire_starter.ex": {
+      "filePath": "apps/fire_starter/lib/fire_starter.ex",
+      "contentHash": "6c9b3a72daf74a5eddeb9fd6210b2d6c56cc7eb8145feed0a5c1623dd2fdd4ff",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/lib/fire_starter/application.ex": {
+      "filePath": "apps/fire_starter/lib/fire_starter/application.ex",
+      "contentHash": "f59a862806262c28976808e2a1cde350573c2736ca6039743a8e9b93a7f26412",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/lib/fire_starter/mailer.ex": {
+      "filePath": "apps/fire_starter/lib/fire_starter/mailer.ex",
+      "contentHash": "0bd62715de9f7e80ed40334c12f5cf0e7ca93b33103a9cd8a840fdab04e7d5c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/lib/fire_starter/repo.ex": {
+      "filePath": "apps/fire_starter/lib/fire_starter/repo.ex",
+      "contentHash": "6495ebc714bf3f82a92606f494926c34112e5c5e4bd29c0624d782e9bbbefd3b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/mix.exs": {
+      "filePath": "apps/fire_starter/mix.exs",
+      "contentHash": "8d1ed1bbf64ce72d4b7f15973dc528724daf5ed16bda19cde41838f985b31d18",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 61,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/priv/repo/migrations/.formatter.exs": {
+      "filePath": "apps/fire_starter/priv/repo/migrations/.formatter.exs",
+      "contentHash": "0214526079b381af52379d2b1fff614512fe4f5bb9a04394ef3246e5b1f61c87",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/priv/repo/seeds.exs": {
+      "filePath": "apps/fire_starter/priv/repo/seeds.exs",
+      "contentHash": "f7f191d129f629b98d5c639f511356a87adb9332b180b620af90d299bfa85ef1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/README.md": {
+      "filePath": "apps/fire_starter/README.md",
+      "contentHash": "d491d251deba9ce39bc3107e94cc64fd9c461ae29bd36f89cfd18f849d8be45d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "apps/fire_starter/test/support/data_case.ex": {
+      "filePath": "apps/fire_starter/test/support/data_case.ex",
+      "contentHash": "5fe2df97214b46d1025b8654495bfac0e7f5ec8614db5ade61d7f838293aed36",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 59,
+      "hasStructuralAnalysis": false
+    },
+    "apps/fire_starter/test/test_helper.exs": {
+      "filePath": "apps/fire_starter/test/test_helper.exs",
+      "contentHash": "3458885791357205db5dbf63025f3b33ef8ebe61c6791ce854e74d241f06e419",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "config/config.exs": {
+      "filePath": "config/config.exs",
+      "contentHash": "ef7f4a12a95c423abe803b0a2f7986703d897080814b768dc2b25929d480df59",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 72,
+      "hasStructuralAnalysis": false
+    },
+    "config/dev.exs": {
+      "filePath": "config/dev.exs",
+      "contentHash": "cfdd96f9fb6aa487d55d777512410888f1410548ce355e46a3d801b0ac35a82e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 89,
+      "hasStructuralAnalysis": false
+    },
+    "config/prod.exs": {
+      "filePath": "config/prod.exs",
+      "contentHash": "5d74122c1075156baa36c986bc8b525e3a2df8be71710bb18d7707574f51684a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": false
+    },
+    "config/runtime.exs": {
+      "filePath": "config/runtime.exs",
+      "contentHash": "33f4c2abf163d02f66041d41b3e1f0cbdd20bf92c8a6883a6f93e5c2414f1524",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 110,
+      "hasStructuralAnalysis": false
+    },
+    "config/test.exs": {
+      "filePath": "config/test.exs",
+      "contentHash": "72cc678965a8d0ffb7c0a2f925844a3a4e2887502db8e35cbb22409d27cdc0c2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": false
+    },
+    "mix.exs": {
+      "filePath": "mix.exs",
+      "contentHash": "4df98dc8fb7456d80495c31747af6cd8e0514d9f20e00d3026bf645e3515656d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "4a0a329caf14bfff56bd03b54341d641282a051ed4e41f551e71119344e44e01",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

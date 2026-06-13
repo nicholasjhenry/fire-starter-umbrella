@@ -1,0 +1,2185 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "fire_starter_umbrella",
+    "languages": [
+      "CSS",
+      "Elixir",
+      "Gettext (po/pot)",
+      "HEEx",
+      "JSON",
+      "JavaScript",
+      "Markdown",
+      "Text"
+    ],
+    "frameworks": [
+      "Bandit",
+      "Ecto",
+      "Esbuild",
+      "Gettext",
+      "Heroicons",
+      "Phoenix",
+      "Phoenix LiveView",
+      "PostgreSQL (Postgrex)",
+      "Swoosh",
+      "Tailwind CSS",
+      "Telemetry"
+    ],
+    "description": "FireStarter is an Elixir umbrella project providing a Phoenix LiveView web application backed by Ecto/PostgreSQL, with a separate fire_starter business-logic app and a fire_starter_web Phoenix endpoint. It uses Bandit, Swoosh for mail, Tailwind + Esbuild for assets, and includes Telemetry/LiveDashboard tooling.",
+    "analyzedAt": "2026-05-28T16:23:09.544Z",
+    "gitCommitHash": "f4e42cb4f75106a43add46e03d3599bb28fd46b2"
+  },
+  "nodes": [
+    {
+      "id": "document:.claude/commands/speckit.analyze.md",
+      "type": "document",
+      "name": "speckit.analyze.md",
+      "filePath": ".claude/commands/speckit.analyze.md",
+      "summary": "Claude Code slash-command prompt that performs a read-only cross-artifact consistency analysis across spec.md, plan.md, and tasks.md, surfacing duplication, ambiguity, underspecification, constitution misalignment, and coverage gaps before implementation begins.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "analysis",
+        "spec-driven-development"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Markdown prompt with YAML frontmatter consumed by Claude Code as a /speckit.analyze command; structured Execution Steps drive a deterministic detection-pass workflow."
+    },
+    {
+      "id": "document:.claude/commands/speckit.checklist.md",
+      "type": "document",
+      "name": "speckit.checklist.md",
+      "filePath": ".claude/commands/speckit.checklist.md",
+      "summary": "Slash-command prompt that generates custom 'unit tests for English' checklists from the active feature spec, helping reviewers catch ambiguous, contradictory, or untestable requirements.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "checklist",
+        "quality-gate"
+      ],
+      "complexity": "complex",
+      "languageNotes": "The largest Speckit prompt in this batch; includes example checklist types and explicit anti-examples to constrain the model's output style."
+    },
+    {
+      "id": "document:.claude/commands/speckit.clarify.md",
+      "type": "document",
+      "name": "speckit.clarify.md",
+      "filePath": ".claude/commands/speckit.clarify.md",
+      "summary": "Slash-command prompt that interrogates the current feature spec for underspecified areas and asks up to five targeted clarification questions, folding the answers back into spec.md.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "clarification",
+        "requirements"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/commands/speckit.constitution.md",
+      "type": "document",
+      "name": "speckit.constitution.md",
+      "filePath": ".claude/commands/speckit.constitution.md",
+      "summary": "Slash-command prompt for creating or updating the project constitution at .specify/memory/constitution.md, filling placeholder tokens, applying semantic version bumps, and propagating amendments to dependent templates.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "governance",
+        "constitution"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.claude/commands/speckit.implement.md",
+      "type": "document",
+      "name": "speckit.implement.md",
+      "filePath": ".claude/commands/speckit.implement.md",
+      "summary": "Slash-command prompt that executes the implementation plan by walking tasks.md, performing each task in dependency order while honoring the constitution and plan.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "implementation",
+        "execution"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/commands/speckit.plan.md",
+      "type": "document",
+      "name": "speckit.plan.md",
+      "filePath": ".claude/commands/speckit.plan.md",
+      "summary": "Slash-command prompt that runs the two-phase planning workflow (Outline & Research, then Design & Contracts) to produce design artifacts from the feature spec.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "planning",
+        "design"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/commands/speckit.specify.md",
+      "type": "document",
+      "name": "speckit.specify.md",
+      "filePath": ".claude/commands/speckit.specify.md",
+      "summary": "Slash-command prompt that turns a natural-language feature description into a structured spec.md, including branch naming, success-criteria guidance, and AI-generation rules.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "specification",
+        "requirements"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.claude/commands/speckit.tasks.md",
+      "type": "document",
+      "name": "speckit.tasks.md",
+      "filePath": ".claude/commands/speckit.tasks.md",
+      "summary": "Slash-command prompt that derives an actionable, dependency-ordered tasks.md checklist from the available design artifacts, with explicit phase structure and checklist formatting rules.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "task-generation",
+        "planning"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.claude/commands/speckit.taskstoissues.md",
+      "type": "document",
+      "name": "speckit.taskstoissues.md",
+      "filePath": ".claude/commands/speckit.taskstoissues.md",
+      "summary": "Slash-command prompt that converts the generated tasks.md into individual GitHub issues via the GitHub MCP server, gated on the origin remote being a GitHub URL.",
+      "tags": [
+        "documentation",
+        "slash-command",
+        "speckit",
+        "github",
+        "issue-tracking"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Smallest prompt in the batch; relies on the github MCP tool declared in frontmatter and explicit CAUTION callouts to prevent cross-repo issue creation."
+    },
+    {
+      "id": "config:.claude/launch.json",
+      "type": "config",
+      "name": "launch.json",
+      "filePath": ".claude/launch.json",
+      "summary": "Claude Code launch configuration that runs the Phoenix server with `mix phx.server` on port 4000.",
+      "tags": [
+        "configuration",
+        "claude-code",
+        "dev-tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.formatter.exs",
+      "type": "file",
+      "name": ".formatter.exs",
+      "filePath": ".formatter.exs",
+      "summary": "Top-level Elixir formatter config that enables the LiveView HEEx formatter plugin and recurses into umbrella apps.",
+      "tags": [
+        "configuration",
+        "formatter",
+        "elixir",
+        "umbrella"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/.understandignore",
+      "type": "config",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Ignore list for the understand-anything analyzer, excluding build artifacts, deps, and generated assets from indexing.",
+      "tags": [
+        "configuration",
+        "ignore-rules",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:AGENTS.md",
+      "type": "document",
+      "name": "AGENTS.md",
+      "filePath": "AGENTS.md",
+      "summary": "Project-level AI agent guidance for the Phoenix app, capturing Phoenix 1.8, LiveView, Ecto, OTP, and HEEx conventions plus anti-patterns to avoid.",
+      "tags": [
+        "documentation",
+        "ai-context",
+        "conventions",
+        "phoenix",
+        "guidelines"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/fire_starter_web/.formatter.exs",
+      "type": "file",
+      "name": ".formatter.exs",
+      "filePath": "apps/fire_starter_web/.formatter.exs",
+      "summary": "App-level formatter config for fire_starter_web that imports Phoenix formatter rules and runs the HEEx formatter plugin over heex/ex/exs files.",
+      "tags": [
+        "configuration",
+        "formatter",
+        "elixir",
+        "phoenix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/assets/css/app.css",
+      "type": "file",
+      "name": "app.css",
+      "filePath": "apps/fire_starter_web/assets/css/app.css",
+      "summary": "Tailwind v4 stylesheet entry point that registers source globs, mounts the heroicons and daisyUI plugins, and defines paired light/dark daisyUI themes.",
+      "tags": [
+        "stylesheet",
+        "tailwind",
+        "daisyui",
+        "theming"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Tailwind v4 uses @import \"tailwindcss\" source(none) plus @source globs rather than a tailwind.config.js."
+    },
+    {
+      "id": "file:apps/fire_starter_web/assets/js/app.js",
+      "type": "file",
+      "name": "app.js",
+      "filePath": "apps/fire_starter_web/assets/js/app.js",
+      "summary": "Client-side entry point that wires up the LiveSocket with colocated hooks, topbar progress UI, and dev-only live-reload helpers for click-to-source navigation.",
+      "tags": [
+        "entry-point",
+        "liveview",
+        "client-side",
+        "asset"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:apps/fire_starter_web/assets/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "apps/fire_starter_web/assets/tsconfig.json",
+      "summary": "TypeScript intellisense config for the assets directory that maps bare imports to `../deps/*` so editors can resolve Phoenix and LiveView JS APIs.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "editor-support",
+        "intellisense"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "file",
+      "name": "fire_starter_web.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web.ex",
+      "summary": "Phoenix web interface entry module that defines `__using__` macros for controllers, LiveViews, components, channels, the router, and verified routes.",
+      "tags": [
+        "entry-point",
+        "phoenix",
+        "macros",
+        "web-layer"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Phoenix convention: a single `defmodule MyAppWeb` whose `__using__(which)` dispatches to per-role quote blocks."
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/application.ex",
+      "type": "file",
+      "name": "application.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/application.ex",
+      "summary": "OTP Application callback that starts the FireStarterWeb supervision tree with Telemetry and Endpoint as children.",
+      "tags": [
+        "entry-point",
+        "otp",
+        "supervisor",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "type": "file",
+      "name": "core_components.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "summary": "Phoenix function-component library providing the application's UI primitives: flash, button, input variants, header, table, list, icon, JS show/hide, and gettext error translation.",
+      "tags": [
+        "component",
+        "ui-library",
+        "phoenix-component",
+        "heex",
+        "tailwind"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:flash",
+      "type": "function",
+      "name": "flash",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        50,
+        80
+      ],
+      "summary": "Renders a dismissable flash toast for :info or :error kinds, pulling the message from the flash map or inner block.",
+      "tags": [
+        "component",
+        "flash",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:button",
+      "type": "function",
+      "name": "button",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        96,
+        117
+      ],
+      "summary": "Renders a styled button or anchor depending on whether navigation attributes (href/navigate/patch) are present.",
+      "tags": [
+        "component",
+        "button",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:input",
+      "type": "function",
+      "name": "input",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        170,
+        270
+      ],
+      "summary": "Multi-clause input component covering Phoenix.HTML.FormField, checkbox, select, textarea, and generic input renderings with labels and error display.",
+      "tags": [
+        "component",
+        "form",
+        "input",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:header",
+      "type": "function",
+      "name": "header",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        289,
+        303
+      ],
+      "summary": "Renders a page header with title, optional subtitle, and an actions slot for right-aligned buttons or links.",
+      "tags": [
+        "component",
+        "header",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:table",
+      "type": "function",
+      "name": "table",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        330,
+        366
+      ],
+      "summary": "Renders a generic data table with columns and an action slot, supporting Phoenix.LiveView.LiveStream rows via `phx-update=\"stream\"`.",
+      "tags": [
+        "component",
+        "table",
+        "liveview-stream"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:list",
+      "type": "function",
+      "name": "list",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        382,
+        393
+      ],
+      "summary": "Renders a simple definition list with one row per :item slot entry, each carrying a title and inner content.",
+      "tags": [
+        "component",
+        "list",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:icon",
+      "type": "function",
+      "name": "icon",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        416,
+        420
+      ],
+      "summary": "Renders a Heroicon by emitting a span whose class is the `hero-*` name; icons are bundled at compile time by the heroicons Tailwind plugin.",
+      "tags": [
+        "component",
+        "icon",
+        "heroicons"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:show",
+      "type": "function",
+      "name": "show",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        424,
+        433
+      ],
+      "summary": "Phoenix.LiveView.JS helper that returns a JS command to fade and slide an element into view over 300ms.",
+      "tags": [
+        "js-command",
+        "animation",
+        "liveview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:hide",
+      "type": "function",
+      "name": "hide",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        435,
+        443
+      ],
+      "summary": "Phoenix.LiveView.JS helper that returns a JS command to fade and slide an element out of view over 200ms.",
+      "tags": [
+        "js-command",
+        "animation",
+        "liveview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:translate_error",
+      "type": "function",
+      "name": "translate_error",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        448,
+        464
+      ],
+      "summary": "Translates a `{msg, opts}` Ecto-style error tuple through FireStarterWeb.Gettext, switching to plural form when an `:count` option is present.",
+      "tags": [
+        "gettext",
+        "i18n",
+        "validation",
+        "errors"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:translate_errors",
+      "type": "function",
+      "name": "translate_errors",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "lineRange": [
+        469,
+        471
+      ],
+      "summary": "Filters a keyword list of changeset errors to a single field and translates each into a localized string.",
+      "tags": [
+        "gettext",
+        "i18n",
+        "validation",
+        "errors"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "type": "file",
+      "name": "layouts.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "summary": "Layout module that embeds layouts/* templates and provides the `app`, `flash_group`, and `theme_toggle` function components used by every page.",
+      "tags": [
+        "component",
+        "layout",
+        "phoenix-component",
+        "heex"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex:app",
+      "type": "function",
+      "name": "app",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "lineRange": [
+        36,
+        73
+      ],
+      "summary": "Top-level page chrome rendering the navbar, theme toggle, main slot, and the flash group below the inner content.",
+      "tags": [
+        "layout",
+        "component",
+        "navbar"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex:flash_group",
+      "type": "function",
+      "name": "flash_group",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "lineRange": [
+        85,
+        116
+      ],
+      "summary": "Renders the standard set of flash toasts plus client- and server-error reconnection banners wired to LiveSocket lifecycle events.",
+      "tags": [
+        "layout",
+        "component",
+        "flash",
+        "liveview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex:theme_toggle",
+      "type": "function",
+      "name": "theme_toggle",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "lineRange": [
+        123,
+        153
+      ],
+      "summary": "Three-way system/light/dark theme switch that dispatches the `phx:set-theme` event consumed by the inline script in root.html.heex.",
+      "tags": [
+        "layout",
+        "component",
+        "theming"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex",
+      "type": "file",
+      "name": "root.html.heex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex",
+      "summary": "Root HTML skeleton containing the document head, CSRF meta, app.css/app.js asset links, and an inline theme bootstrapper that runs before page paint.",
+      "tags": [
+        "template",
+        "heex",
+        "root-layout",
+        "theming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+      "type": "file",
+      "name": "error_html.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+      "summary": "HTML error view that renders plain-text status messages derived from the template name (e.g. 404.html becomes \"Not Found\").",
+      "tags": [
+        "error-handling",
+        "view",
+        "phoenix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+      "type": "file",
+      "name": "error_json.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+      "summary": "JSON error view that returns `%{errors: %{detail: status_message}}` for API error responses keyed by the status template.",
+      "tags": [
+        "error-handling",
+        "view",
+        "json",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+      "type": "file",
+      "name": "page_controller.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+      "summary": "Phoenix controller for the marketing-style home page, rendering the `:home` template through PageHTML.",
+      "tags": [
+        "api-handler",
+        "controller",
+        "phoenix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+      "type": "file",
+      "name": "page_html.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+      "summary": "PageHTML view module that embeds the page_html/*.html.heex templates for the home page controller.",
+      "tags": [
+        "view",
+        "phoenix",
+        "template-host"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex",
+      "type": "file",
+      "name": "home.html.heex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex",
+      "summary": "Marketing landing template with hero-style SVG artwork and quick links to Phoenix learning resources, rendered via Layouts.flash_group.",
+      "tags": [
+        "template",
+        "heex",
+        "landing-page",
+        "marketing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "file",
+      "name": "endpoint.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "summary": "Phoenix endpoint that mounts the LiveView socket, static assets, session/CSRF/request-id plugs, code reloading in dev, and the application router.",
+      "tags": [
+        "entry-point",
+        "endpoint",
+        "plug",
+        "phoenix"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+      "type": "file",
+      "name": "gettext.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+      "summary": "Gettext backend module for the fire_starter_web OTP app that compiles translations from priv/gettext and exposes gettext/ngettext/dgettext macros.",
+      "tags": [
+        "i18n",
+        "gettext",
+        "backend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "type": "file",
+      "name": "router.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "summary": "Phoenix router defining the :browser and :api pipelines, the `/` -> PageController.home route, and a dev-only `/dev` scope with LiveDashboard and Swoosh mailbox preview.",
+      "tags": [
+        "router",
+        "phoenix",
+        "pipelines",
+        "routing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+      "type": "file",
+      "name": "telemetry.ex",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+      "summary": "Supervisor that boots :telemetry_poller and declares Phoenix, Ecto-style fire_starter.repo, and VM metric definitions consumed by LiveDashboard.",
+      "tags": [
+        "telemetry",
+        "metrics",
+        "supervisor",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex:metrics",
+      "type": "function",
+      "name": "metrics",
+      "filePath": "apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+      "lineRange": [
+        22,
+        84
+      ],
+      "summary": "Declares the Telemetry.Metrics list covering Phoenix endpoint/router/socket/channel events, fire_starter.repo query timings, and BEAM VM stats.",
+      "tags": [
+        "telemetry",
+        "metrics",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/fire_starter_web/mix.exs",
+      "type": "file",
+      "name": "mix.exs",
+      "filePath": "apps/fire_starter_web/mix.exs",
+      "summary": "Mix project file for the fire_starter_web umbrella app declaring Phoenix 1.8, LiveView 1.1, Bandit, Gettext, Tailwind/Esbuild deps, the in-umbrella fire_starter dependency, and asset build aliases.",
+      "tags": [
+        "build-system",
+        "configuration",
+        "mix",
+        "umbrella-app"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/fire_starter_web/priv/gettext/en/LC_MESSAGES/errors.po",
+      "type": "file",
+      "name": "errors.po",
+      "filePath": "apps/fire_starter_web/priv/gettext/en/LC_MESSAGES/errors.po",
+      "summary": "English translation catalog for Ecto/Phoenix validation error messages, mirroring the master errors.pot template with empty msgstr placeholders for the default locale.",
+      "tags": [
+        "i18n",
+        "gettext",
+        "translations",
+        "errors"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/fire_starter_web/priv/gettext/errors.pot",
+      "type": "file",
+      "name": "errors.pot",
+      "filePath": "apps/fire_starter_web/priv/gettext/errors.pot",
+      "summary": "Master gettext template enumerating the error domain msgids extracted from Ecto changeset and Phoenix validation messages.",
+      "tags": [
+        "i18n",
+        "gettext",
+        "template",
+        "errors"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:apps/fire_starter_web/priv/static/robots.txt",
+      "type": "document",
+      "name": "robots.txt",
+      "filePath": "apps/fire_starter_web/priv/static/robots.txt",
+      "summary": "Default Phoenix robots.txt placeholder with commented-out directives for banning all crawlers; served as a static asset from the web endpoint.",
+      "tags": [
+        "documentation",
+        "static-asset",
+        "seo"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:apps/fire_starter_web/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "apps/fire_starter_web/README.md",
+      "summary": "Getting-started guide for the FireStarterWeb Phoenix app covering server startup via mix setup and mix phx.server, with links to Phoenix docs.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "phoenix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs",
+      "type": "file",
+      "name": "error_html_test.exs",
+      "filePath": "apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs",
+      "summary": "ExUnit test asserting that FireStarterWeb.ErrorHTML renders the expected 404 and 500 plain-text bodies via Phoenix.Template.render_to_string/4.",
+      "tags": [
+        "test",
+        "controller",
+        "error-handling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs",
+      "type": "file",
+      "name": "error_json_test.exs",
+      "filePath": "apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs",
+      "summary": "ExUnit test verifying that FireStarterWeb.ErrorJSON produces the canonical %{errors: %{detail: ...}} payloads for 404 and 500 responses.",
+      "tags": [
+        "test",
+        "controller",
+        "json",
+        "error-handling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/test/fire_starter_web/controllers/page_controller_test.exs",
+      "type": "file",
+      "name": "page_controller_test.exs",
+      "filePath": "apps/fire_starter_web/test/fire_starter_web/controllers/page_controller_test.exs",
+      "summary": "Integration test issuing GET / through the test conn and asserting the home page renders the Phoenix welcome tagline.",
+      "tags": [
+        "test",
+        "controller",
+        "integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "type": "file",
+      "name": "conn_case.ex",
+      "filePath": "apps/fire_starter_web/test/support/conn_case.ex",
+      "summary": "ExUnit case template providing a configured Plug.Conn and verified routes for controller/LiveView tests, and delegating sandbox setup to FireStarter.DataCase.",
+      "tags": [
+        "test",
+        "case-template",
+        "phoenix",
+        "support"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses ExUnit.CaseTemplate with a `using` macro to inject @endpoint, imports, and verified_routes into every test module that `use`s it."
+    },
+    {
+      "id": "class:apps/fire_starter_web/test/support/conn_case.ex:FireStarterWeb.ConnCase",
+      "type": "class",
+      "name": "FireStarterWeb.ConnCase",
+      "filePath": "apps/fire_starter_web/test/support/conn_case.ex",
+      "lineRange": [
+        1,
+        38
+      ],
+      "summary": "Case template module that boots a connection-aware test context and wires the Ecto sandbox via FireStarter.DataCase.setup_sandbox.",
+      "tags": [
+        "test-support",
+        "case-template",
+        "phoenix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter_web/test/test_helper.exs",
+      "type": "file",
+      "name": "test_helper.exs",
+      "filePath": "apps/fire_starter_web/test/test_helper.exs",
+      "summary": "ExUnit boot script that starts the test runner and puts the FireStarter.Repo SQL sandbox into :manual mode for the web app's tests.",
+      "tags": [
+        "test",
+        "entry-point",
+        "ecto-sandbox"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/fire_starter/.formatter.exs",
+      "type": "config",
+      "name": ".formatter.exs",
+      "filePath": "apps/fire_starter/.formatter.exs",
+      "summary": "mix format configuration for the fire_starter app, importing :ecto_sql deps and formatting top-level .exs files.",
+      "tags": [
+        "configuration",
+        "formatter",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/lib/fire_starter.ex",
+      "type": "file",
+      "name": "fire_starter.ex",
+      "filePath": "apps/fire_starter/lib/fire_starter.ex",
+      "summary": "Root domain module for the fire_starter app; currently a documentation-only placeholder for future Phoenix contexts.",
+      "tags": [
+        "domain",
+        "entry-point",
+        "context"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/lib/fire_starter/application.ex",
+      "type": "file",
+      "name": "application.ex",
+      "filePath": "apps/fire_starter/lib/fire_starter/application.ex",
+      "summary": "OTP application callback module for the fire_starter app; starts the Repo, DNSCluster, and Phoenix.PubSub under a :one_for_one supervisor.",
+      "tags": [
+        "entry-point",
+        "otp",
+        "supervisor",
+        "application"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses `use Application` with @impl true on start/2 — the standard Elixir/OTP entry point pattern."
+    },
+    {
+      "id": "class:apps/fire_starter/lib/fire_starter/application.ex:FireStarter.Application",
+      "type": "class",
+      "name": "FireStarter.Application",
+      "filePath": "apps/fire_starter/lib/fire_starter/application.ex",
+      "lineRange": [
+        1,
+        20
+      ],
+      "summary": "OTP Application module that defines the fire_starter supervision tree (Repo, DNSCluster, Phoenix.PubSub).",
+      "tags": [
+        "application",
+        "supervisor",
+        "otp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/lib/fire_starter/mailer.ex",
+      "type": "file",
+      "name": "mailer.ex",
+      "filePath": "apps/fire_starter/lib/fire_starter/mailer.ex",
+      "summary": "Swoosh mailer module for the :fire_starter OTP app; adapter is selected per-environment via config files.",
+      "tags": [
+        "mailer",
+        "swoosh",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "file",
+      "name": "repo.ex",
+      "filePath": "apps/fire_starter/lib/fire_starter/repo.ex",
+      "summary": "Ecto repository module wired to the Postgres adapter for the :fire_starter OTP app.",
+      "tags": [
+        "data-model",
+        "ecto",
+        "repository",
+        "postgres"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/mix.exs",
+      "type": "file",
+      "name": "mix.exs",
+      "filePath": "apps/fire_starter/mix.exs",
+      "summary": "Mix project file for the fire_starter domain app declaring dependencies (Ecto, Postgrex, Swoosh, DNSCluster, PubSub, Req, Jason) and ecto.setup/test aliases.",
+      "tags": [
+        "build-system",
+        "mix",
+        "dependencies"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/fire_starter/priv/repo/migrations/.formatter.exs",
+      "type": "config",
+      "name": ".formatter.exs",
+      "filePath": "apps/fire_starter/priv/repo/migrations/.formatter.exs",
+      "summary": "Localized mix format configuration for Ecto migration files, importing :ecto_sql formatter rules.",
+      "tags": [
+        "configuration",
+        "formatter",
+        "migrations"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/priv/repo/seeds.exs",
+      "type": "file",
+      "name": "seeds.exs",
+      "filePath": "apps/fire_starter/priv/repo/seeds.exs",
+      "summary": "Database seed script stub for populating the fire_starter Repo via FireStarter.Repo.insert!/1 — currently only documentation comments.",
+      "tags": [
+        "script",
+        "seed",
+        "database"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:apps/fire_starter/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "apps/fire_starter/README.md",
+      "summary": "Placeholder README for the fire_starter domain app — content not yet authored.",
+      "tags": [
+        "documentation",
+        "placeholder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/test/support/data_case.ex",
+      "type": "file",
+      "name": "data_case.ex",
+      "filePath": "apps/fire_starter/test/support/data_case.ex",
+      "summary": "ExUnit case template for data-layer tests; sets up the Ecto SQL sandbox per test and provides an errors_on/1 changeset error helper.",
+      "tags": [
+        "test",
+        "case-template",
+        "ecto",
+        "support"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses `ExUnit.CaseTemplate` with a `using` macro to inject aliases/imports, plus a `setup` block that delegates sandbox configuration."
+    },
+    {
+      "id": "class:apps/fire_starter/test/support/data_case.ex:FireStarter.DataCase",
+      "type": "class",
+      "name": "FireStarter.DataCase",
+      "filePath": "apps/fire_starter/test/support/data_case.ex",
+      "lineRange": [
+        1,
+        58
+      ],
+      "summary": "Case template module that enables Ecto SQL Sandbox per-test ownership and exposes a changeset errors_on/1 helper.",
+      "tags": [
+        "test-support",
+        "case-template",
+        "ecto"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/fire_starter/test/support/data_case.ex:setup_sandbox",
+      "type": "function",
+      "name": "setup_sandbox",
+      "filePath": "apps/fire_starter/test/support/data_case.ex",
+      "lineRange": [
+        38,
+        41
+      ],
+      "summary": "Starts an Ecto SQL Sandbox owner for the FireStarter.Repo, picking shared or async ownership based on the test tags, and schedules cleanup on exit.",
+      "tags": [
+        "test-support",
+        "ecto-sandbox",
+        "setup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/fire_starter/test/support/data_case.ex:errors_on",
+      "type": "function",
+      "name": "errors_on",
+      "filePath": "apps/fire_starter/test/support/data_case.ex",
+      "lineRange": [
+        51,
+        57
+      ],
+      "summary": "Traverses changeset errors and interpolates message placeholders (%{key}) into human-readable values, returning a field-keyed map of error strings.",
+      "tags": [
+        "test-support",
+        "ecto",
+        "changeset",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/fire_starter/test/test_helper.exs",
+      "type": "file",
+      "name": "test_helper.exs",
+      "filePath": "apps/fire_starter/test/test_helper.exs",
+      "summary": "ExUnit boot script that starts the test runner and switches the FireStarter.Repo SQL sandbox into :manual ownership mode.",
+      "tags": [
+        "test",
+        "entry-point",
+        "ecto-sandbox"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:config/config.exs",
+      "type": "config",
+      "name": "config.exs",
+      "filePath": "config/config.exs",
+      "summary": "Umbrella-wide compile-time configuration; wires the Ecto repos, Phoenix Endpoint, Swoosh mailer, esbuild/tailwind asset pipelines, Logger format, and Jason JSON library.",
+      "tags": [
+        "configuration",
+        "umbrella",
+        "phoenix",
+        "ecto",
+        "asset-pipeline"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:config/dev.exs",
+      "type": "config",
+      "name": "dev.exs",
+      "filePath": "config/dev.exs",
+      "summary": "Development-environment configuration enabling code reloader, debug errors, watchers (esbuild, tailwind), live_reload patterns, dev_routes, and verbose LiveView debug annotations.",
+      "tags": [
+        "configuration",
+        "development",
+        "phoenix",
+        "asset-pipeline"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:config/prod.exs",
+      "type": "config",
+      "name": "prod.exs",
+      "filePath": "config/prod.exs",
+      "summary": "Production compile-time configuration setting endpoint host/port, cache_static_manifest, Swoosh Req API client, and :info-level logging.",
+      "tags": [
+        "configuration",
+        "production",
+        "phoenix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:config/runtime.exs",
+      "type": "config",
+      "name": "runtime.exs",
+      "filePath": "config/runtime.exs",
+      "summary": "Runtime configuration (also executed in releases) that reads DATABASE_URL, SECRET_KEY_BASE, PORT, POOL_SIZE, ECTO_IPV6, and DNS_CLUSTER_QUERY env vars to configure Repo and Endpoint in production.",
+      "tags": [
+        "configuration",
+        "runtime",
+        "production",
+        "secrets"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses `if config_env() == :prod` to gate production-only secrets so the same file is safe to load in dev/test."
+    },
+    {
+      "id": "config:config/test.exs",
+      "type": "config",
+      "name": "test.exs",
+      "filePath": "config/test.exs",
+      "summary": "Test-environment configuration; pools FireStarter.Repo through the Ecto SQL Sandbox, disables the web server, points Swoosh at the Test adapter, and quiets logs to :warning.",
+      "tags": [
+        "configuration",
+        "test",
+        "ecto-sandbox",
+        "phoenix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mix.exs",
+      "type": "file",
+      "name": "mix.exs",
+      "filePath": "mix.exs",
+      "summary": "Umbrella Mix project root declaring apps_path: \"apps\", the Phoenix.CodeReloader listener, and a precommit alias chain (compile --warning-as-errors, deps.unlock --unused, format, test).",
+      "tags": [
+        "build-system",
+        "mix",
+        "umbrella",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Umbrella project README — currently only the FireStarter.Umbrella title heading.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "umbrella"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.claude/commands/speckit.constitution.md",
+      "target": "document:.claude/commands/speckit.specify.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.specify.md",
+      "target": "document:.claude/commands/speckit.clarify.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.specify.md",
+      "target": "document:.claude/commands/speckit.plan.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.clarify.md",
+      "target": "document:.claude/commands/speckit.plan.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.plan.md",
+      "target": "document:.claude/commands/speckit.tasks.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.tasks.md",
+      "target": "document:.claude/commands/speckit.checklist.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.tasks.md",
+      "target": "document:.claude/commands/speckit.analyze.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.analyze.md",
+      "target": "document:.claude/commands/speckit.implement.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.tasks.md",
+      "target": "document:.claude/commands/speckit.implement.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.claude/commands/speckit.tasks.md",
+      "target": "document:.claude/commands/speckit.taskstoissues.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:flash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:icon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:show",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:hide",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:translate_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex:translate_errors",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex:app",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex:flash_group",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex:theme_toggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+      "target": "function:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex:metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/application.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/application.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex",
+      "target": "file:apps/fire_starter_web/assets/css/app.css",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex",
+      "target": "file:apps/fire_starter_web/assets/js/app.js",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/mix.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/application.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.claude/launch.json",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/application.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:apps/fire_starter_web/assets/tsconfig.json",
+      "target": "file:apps/fire_starter_web/assets/js/app.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:.formatter.exs",
+      "target": "file:apps/fire_starter_web/.formatter.exs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:AGENTS.md",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:AGENTS.md",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:AGENTS.md",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:AGENTS.md",
+      "target": "file:apps/fire_starter_web/assets/css/app.css",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/priv/gettext/en/LC_MESSAGES/errors.po",
+      "target": "file:apps/fire_starter_web/priv/gettext/errors.pot",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/priv/gettext/errors.pot",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "target": "class:apps/fire_starter_web/test/support/conn_case.ex:FireStarterWeb.ConnCase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter/lib/fire_starter/application.ex",
+      "target": "class:apps/fire_starter/lib/fire_starter/application.ex:FireStarter.Application",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter/test/support/data_case.ex",
+      "target": "class:apps/fire_starter/test/support/data_case.ex:FireStarter.DataCase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter/test/support/data_case.ex",
+      "target": "function:apps/fire_starter/test/support/data_case.ex:setup_sandbox",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter/test/support/data_case.ex",
+      "target": "function:apps/fire_starter/test/support/data_case.ex:errors_on",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:apps/fire_starter/lib/fire_starter/application.ex",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "target": "file:apps/fire_starter/test/support/data_case.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs",
+      "target": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs",
+      "target": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/fire_starter_web/controllers/page_controller_test.exs",
+      "target": "file:apps/fire_starter_web/test/support/conn_case.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter_web/test/test_helper.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter/test/test_helper.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter/test/support/data_case.ex",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter/priv/repo/seeds.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter/mix.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/application.ex",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:apps/fire_starter/mix.exs",
+      "target": "file:apps/fire_starter/priv/repo/seeds.exs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:mix.exs",
+      "target": "file:apps/fire_starter/mix.exs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:mix.exs",
+      "target": "file:apps/fire_starter_web/mix.exs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/mailer.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "config:config/dev.exs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "config:config/prod.exs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/config.exs",
+      "target": "config:config/test.exs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/dev.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/dev.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/prod.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/runtime.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/runtime.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/test.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/repo.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/test.exs",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:config/test.exs",
+      "target": "file:apps/fire_starter/lib/fire_starter/mailer.ex",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:mix.exs",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:apps/fire_starter/README.md",
+      "target": "file:apps/fire_starter/lib/fire_starter.ex",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:apps/fire_starter_web/README.md",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:apps/fire_starter_web/priv/static/robots.txt",
+      "target": "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+      "target": "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+      "target": "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+      "target": "file:apps/fire_starter_web/test/fire_starter_web/controllers/page_controller_test.exs",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:umbrella-config",
+      "name": "Umbrella Configuration",
+      "description": "Umbrella-level mix project, formatter, and the per-environment Mix config files (config.exs, dev/test/prod/runtime) that wire Phoenix, Ecto, Bandit, Swoosh, Esbuild, and Tailwind across both sub-apps.",
+      "nodeIds": [
+        "file:.formatter.exs",
+        "config:config/config.exs",
+        "config:config/dev.exs",
+        "config:config/prod.exs",
+        "config:config/runtime.exs",
+        "config:config/test.exs",
+        "file:mix.exs"
+      ]
+    },
+    {
+      "id": "layer:documentation",
+      "name": "Documentation",
+      "description": "Human-facing READMEs for the umbrella and each sub-app, the AGENTS.md collaboration guide, and the public robots.txt served by the web endpoint.",
+      "nodeIds": [
+        "document:AGENTS.md",
+        "document:apps/fire_starter_web/priv/static/robots.txt",
+        "document:apps/fire_starter_web/README.md",
+        "document:apps/fire_starter/README.md",
+        "document:README.md"
+      ]
+    },
+    {
+      "id": "layer:speckit-tooling",
+      "name": "Speckit & Agent Tooling",
+      "description": "Claude Code slash-command prompts for the Speckit spec-driven workflow plus the launch configuration and .understandignore file that drive AI-assisted authoring of specs, plans, tasks, and reviews.",
+      "nodeIds": [
+        "document:.claude/commands/speckit.analyze.md",
+        "document:.claude/commands/speckit.checklist.md",
+        "document:.claude/commands/speckit.clarify.md",
+        "document:.claude/commands/speckit.constitution.md",
+        "document:.claude/commands/speckit.implement.md",
+        "document:.claude/commands/speckit.plan.md",
+        "document:.claude/commands/speckit.specify.md",
+        "document:.claude/commands/speckit.tasks.md",
+        "document:.claude/commands/speckit.taskstoissues.md",
+        "config:.claude/launch.json",
+        "config:.understand-anything/.understandignore"
+      ]
+    },
+    {
+      "id": "layer:domain-app",
+      "name": "Domain App (fire_starter)",
+      "description": "The fire_starter sub-app providing the Ecto Repo, Swoosh Mailer, supervisor (application.ex), test support (DataCase), seeds, migration formatter, and mix project for the domain/data tier.",
+      "nodeIds": [
+        "config:apps/fire_starter/.formatter.exs",
+        "file:apps/fire_starter/lib/fire_starter.ex",
+        "file:apps/fire_starter/lib/fire_starter/application.ex",
+        "file:apps/fire_starter/lib/fire_starter/mailer.ex",
+        "file:apps/fire_starter/lib/fire_starter/repo.ex",
+        "file:apps/fire_starter/mix.exs",
+        "config:apps/fire_starter/priv/repo/migrations/.formatter.exs",
+        "file:apps/fire_starter/priv/repo/seeds.exs",
+        "file:apps/fire_starter/test/support/data_case.ex",
+        "file:apps/fire_starter/test/test_helper.exs"
+      ]
+    },
+    {
+      "id": "layer:web-application",
+      "name": "Web Application (fire_starter_web)",
+      "description": "The fire_starter_web Phoenix sub-app: endpoint, router, controllers, HTML/JSON views, components, layouts, telemetry, supervisor, ConnCase test support, and its mix project — the HTTP-facing tier built on Bandit + LiveView.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/.formatter.exs",
+        "file:apps/fire_starter_web/lib/fire_starter_web.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/application.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex",
+        "file:apps/fire_starter_web/mix.exs",
+        "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs",
+        "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs",
+        "file:apps/fire_starter_web/test/fire_starter_web/controllers/page_controller_test.exs",
+        "file:apps/fire_starter_web/test/support/conn_case.ex",
+        "file:apps/fire_starter_web/test/test_helper.exs"
+      ]
+    },
+    {
+      "id": "layer:frontend-assets",
+      "name": "Frontend Assets",
+      "description": "Browser-side sources compiled by Esbuild and Tailwind — app.css, app.js, and the assets tsconfig.json under apps/fire_starter_web/assets.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/assets/css/app.css",
+        "file:apps/fire_starter_web/assets/js/app.js",
+        "config:apps/fire_starter_web/assets/tsconfig.json"
+      ]
+    },
+    {
+      "id": "layer:internationalization",
+      "name": "Internationalization",
+      "description": "Gettext machinery for the web app — the Gettext backend module and the en/errors.po + errors.pot translation catalogs under priv/gettext.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+        "file:apps/fire_starter_web/priv/gettext/en/LC_MESSAGES/errors.po",
+        "file:apps/fire_starter_web/priv/gettext/errors.pot"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Orientation",
+      "description": "Start here to understand what FireStarter is and how the team works on it. The root README marks the project as the FireStarter umbrella, while AGENTS.md captures the substantive conventions an agent or new contributor needs to follow — Phoenix 1.8, LiveView, Ecto, OTP, and HEEx patterns plus the anti-patterns to avoid. Together they answer 'what is this codebase, and what rules govern changes to it?' before any code is opened.",
+      "nodeIds": [
+        "document:README.md",
+        "document:AGENTS.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Umbrella Mix Project",
+      "description": "FireStarter is an Elixir umbrella, which means the root mix.exs is a thin coordinator rather than an application. It declares apps_path: \"apps\", wires up the Phoenix.CodeReloader listener that powers dev-time reloading, and defines the precommit alias chain (compile --warning-as-errors, deps.unlock --unused, format, test) that gates every commit. The matching .formatter.exs enables the HEEx formatter plugin and recurses into both sub-apps so style stays consistent across the umbrella.",
+      "nodeIds": [
+        "file:mix.exs",
+        "file:.formatter.exs"
+      ],
+      "languageLesson": "An Elixir umbrella project sets apps_path in mix.exs to point at a directory of child Mix projects. Each sub-app builds and tests independently, but shares deps and config — this is how you split a Phoenix 1.8 app into a domain tier and a web tier without splitting the repo."
+    },
+    {
+      "order": 3,
+      "title": "Compile-Time Configuration",
+      "description": "Before any application starts, config/config.exs is read by Mix to wire compile-time settings across both sub-apps. It registers the Ecto Repo, configures the Phoenix Endpoint, points the Swoosh mailer at its adapter, sets up the esbuild and tailwind asset pipelines, configures the Logger format, and selects Jason as the JSON library. This file is the umbrella's central wiring board — every later step depends on something declared here.",
+      "nodeIds": [
+        "config:config/config.exs"
+      ],
+      "languageLesson": "Phoenix config files use Config.config/2 with three arguments: the OTP app, a key, and a keyword list. import_config at the end loads environment-specific overrides (dev.exs, test.exs, prod.exs) — compile-time only. Anything that needs to read env vars at boot must live in runtime.exs instead."
+    },
+    {
+      "order": 4,
+      "title": "Domain App Boot",
+      "description": "The fire_starter sub-app is the data and domain tier. Its application.ex is the OTP Application callback that starts a :one_for_one supervisor with three children: the Ecto Repo, DNSCluster for node discovery, and Phoenix.PubSub for cross-process messaging. Repo.ex (fan-in 9 — the most depended-on module in the umbrella) provides the Postgres-backed Ecto repository, while mailer.ex declares the Swoosh mailer whose adapter is selected per environment.",
+      "nodeIds": [
+        "file:apps/fire_starter/mix.exs",
+        "file:apps/fire_starter/lib/fire_starter/application.ex",
+        "file:apps/fire_starter/lib/fire_starter/repo.ex",
+        "file:apps/fire_starter/lib/fire_starter/mailer.ex"
+      ],
+      "languageLesson": "An OTP Application module implements use Application and a start/2 callback that returns Supervisor.start_link/2. The supervision strategy (:one_for_one means restart only the crashed child) is the contract that gives Elixir its fault tolerance — if Repo dies, the Repo restarts without taking PubSub down with it."
+    },
+    {
+      "order": 5,
+      "title": "Web App Boot & HTTP Endpoint",
+      "description": "The fire_starter_web sub-app is the HTTP-facing tier. Its application.ex starts a supervision tree with Telemetry first (so metrics are ready) and then the Endpoint — the highest fan-in module in the graph (11 inbound edges). endpoint.ex mounts the LiveView socket, serves static assets, runs the session/CSRF/request-id plug chain, enables code reloading in dev, and delegates routing to the application router. This is where every HTTP request enters the system.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/mix.exs",
+        "file:apps/fire_starter_web/lib/fire_starter_web/application.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/endpoint.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/telemetry.ex"
+      ],
+      "languageLesson": "A Phoenix Endpoint is itself a Plug — a function from %Plug.Conn{} to %Plug.Conn{}. plug/2 calls in endpoint.ex compose middleware in order: parsers run before the session plug, which runs before the router. Bandit is the HTTP server adapter that actually opens the listening socket."
+    },
+    {
+      "order": 6,
+      "title": "Routing the Home Page",
+      "description": "This step traces a complete request: router.ex declares the :browser and :api pipelines, then routes GET / to PageController.home. page_controller.ex renders the :home action, which dispatches to page_html.ex (the view module that embeds templates), which renders home.html.heex — a marketing landing template with hero-style SVG artwork. The graph analysis identified these five files as the tightest cluster in the codebase (9 internal edges), which is no accident: they're the canonical Phoenix controller/view/template trio plus the router that aims requests at them.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/lib/fire_starter_web/router.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_controller.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/page_html/home.html.heex"
+      ],
+      "languageLesson": "Phoenix 1.8 uses verified routes: ~p\"/users/#{user}\" is checked against the router at compile time, so dead links fail the build. The controller/view/template split keeps render logic out of controllers — controllers assign data, views format it, templates produce HTML."
+    },
+    {
+      "order": 7,
+      "title": "The Web Interface Module",
+      "description": "fire_starter_web.ex (fan-in 8) is the keystone module every controller, LiveView, component, and channel uses to bootstrap itself. It defines __using__ macros — use FireStarterWeb, :controller, use FireStarterWeb, :live_view, use FireStarterWeb, :html — that each inject the correct imports, aliases, and behaviour for that role. This is how Phoenix avoids 30 lines of boilerplate at the top of every file: one use statement pulls in everything a module of that kind needs.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/lib/fire_starter_web.ex"
+      ],
+      "languageLesson": "Elixir's use Module, :atom calls Module.__using__(:atom) at compile time, splicing AST into the calling module. This is the central macro pattern in Phoenix — fire_starter_web.ex acts as a router for module roles. Reading the quote do … end blocks here tells you what every controller, view, and LiveView in the app has imported."
+    },
+    {
+      "order": 8,
+      "title": "UI Components & Layouts",
+      "description": "Building on the home page from Step 6, this layer is the reusable UI vocabulary. core_components.ex is the function-component library — flash, button, input variants, header, table, list, icon, and the gettext-aware translate_error helpers. layouts.ex embeds the layouts/* templates and exposes app, flash_group, and theme_toggle components. root.html.heex is the outermost HTML skeleton: <head>, CSRF meta, links to app.css and app.js, and an inline theme bootstrapper that runs before paint to prevent a light/dark flash.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/lib/fire_starter_web/components/core_components.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/components/layouts/root.html.heex"
+      ],
+      "languageLesson": "Phoenix function components use attr/3 and slot/3 to declare a typed component contract that is checked at compile time. A component like <.button variant=\"primary\">Save</.button> is a function call — the same composition model as React, but the function returns a HEEx struct rather than a virtual DOM node."
+    },
+    {
+      "order": 9,
+      "title": "Frontend Assets",
+      "description": "The browser-side entry points referenced by root.html.heex in Step 8. app.css is a Tailwind v4 stylesheet that registers source globs, mounts the heroicons and daisyUI plugins, and defines paired light/dark daisyUI themes. app.js wires up the LiveSocket with colocated hooks, the topbar progress UI, and dev-only live-reload helpers for click-to-source navigation. Esbuild and Tailwind (configured in config.exs from Step 3) compile these into apps/fire_starter_web/priv/static/ at build time. The tsconfig.json provides editor intellisense by mapping bare imports to ../deps/*.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/assets/css/app.css",
+        "file:apps/fire_starter_web/assets/js/app.js",
+        "config:apps/fire_starter_web/assets/tsconfig.json"
+      ],
+      "languageLesson": "Tailwind v4 uses @source globs in CSS to tell the compiler which files to scan for class names — a different model from v3's tailwind.config.js. daisyUI sits on top of Tailwind to provide pre-styled component classes (btn, card, alert), which is why core_components.ex from Step 8 leans on short utility-driven class strings."
+    },
+    {
+      "order": 10,
+      "title": "Internationalization",
+      "description": "core_components.ex from Step 8 calls translate_error, and that path leads here. gettext.ex is the Gettext backend module that compiles translations from priv/gettext at compile time and exposes the gettext/ngettext/dgettext macros. errors.pot is the master template enumerating every error msgid extracted from Ecto changeset and Phoenix validation messages. errors.po is the English catalog that mirrors the template with empty msgstr placeholders — translators add new locale directories under priv/gettext/<lang>/LC_MESSAGES/ to add languages.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/lib/fire_starter_web/gettext.ex",
+        "file:apps/fire_starter_web/priv/gettext/errors.pot",
+        "file:apps/fire_starter_web/priv/gettext/en/LC_MESSAGES/errors.po"
+      ],
+      "languageLesson": "The Gettext format is a GNU standard: .pot is the template (no translations), .po is a locale catalog (msgid → msgstr), and .mo is the compiled binary used at runtime. Elixir's Gettext compiles .po files at compile time rather than reading them at runtime, so adding translations requires a recompile."
+    },
+    {
+      "order": 11,
+      "title": "Error Responses",
+      "description": "Phoenix maps unhandled exceptions to status pages through view modules registered in config.exs. error_html.ex renders plain-text status messages derived from the template name (404.html becomes \"Not Found\"), while error_json.ex returns the canonical %{errors: %{detail: status_message}} payload for API responses. Both have focused ExUnit tests that pin the exact bodies via Phoenix.Template.render_to_string/4, ensuring the error contract never drifts.",
+      "nodeIds": [
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_html.ex",
+        "file:apps/fire_starter_web/lib/fire_starter_web/controllers/error_json.ex",
+        "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_html_test.exs",
+        "file:apps/fire_starter_web/test/fire_starter_web/controllers/error_json_test.exs"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Environment Configuration",
+      "description": "The compile-time wiring from Step 3 (config.exs) ends with import_config calls that load these per-environment overrides. dev.exs turns on the code reloader, the esbuild and tailwind watchers, live_reload patterns, dev_routes, and verbose LiveView debug annotations. test.exs pools the Repo through Ecto SQL Sandbox, disables the web server, and points Swoosh at the Test adapter. prod.exs sets the endpoint host/port and the cache_static_manifest. runtime.exs is the critical one for releases — it reads DATABASE_URL, SECRET_KEY_BASE, PORT, POOL_SIZE, ECTO_IPV6, and DNS_CLUSTER_QUERY at boot, which is why secrets live in environment variables rather than compiled config.",
+      "nodeIds": [
+        "config:config/dev.exs",
+        "config:config/test.exs",
+        "config:config/prod.exs",
+        "config:config/runtime.exs"
+      ],
+      "languageLesson": "The compile/runtime split is fundamental in Elixir releases: anything that has to differ between staging and production (database URL, secret key base, port) must be read in runtime.exs because compile-time config.exs is baked into the release artifact and cannot vary per deploy."
+    },
+    {
+      "order": 13,
+      "title": "Test Scaffolding",
+      "description": "A capstone for the umbrella: the shared ExUnit case templates that every test in both sub-apps relies on. data_case.ex (in the fire_starter domain app) checks out an Ecto SQL sandbox per test and provides the errors_on/1 changeset helper. conn_case.ex (in fire_starter_web) builds on data_case by adding a configured Plug.Conn and verified routes — controller and LiveView tests use ConnCase, while pure data tests use DataCase. The test_helper.exs files in each app put the Repo sandbox into :manual mode so each test owns its own transaction and rolls it back on teardown, enabling async tests against a shared database.",
+      "nodeIds": [
+        "file:apps/fire_starter/test/support/data_case.ex",
+        "file:apps/fire_starter_web/test/support/conn_case.ex"
+      ],
+      "languageLesson": "ExUnit case templates are defined with use ExUnit.CaseTemplate. The using/1 macro injects imports and aliases into every test that calls use FireStarterWeb.ConnCase, and the setup hook checks out a sandboxed DB connection per test — the foundation that makes async: true safe with a real Postgres database."
+    }
+  ]
+}
