@@ -32,6 +32,24 @@ A starter application template for a Phoenix Umbella project. What do you get?
 
 🚧 Remove the above documentation when using for your own application.
 
+## Generating new application
+
+Run the following commands to create your new platform:
+
+```sh
+git clone https://github.com/nicholasjhenry/fire-starter-umbrella.git YOUR_PLATFORM
+cd YOUR_PLATFORM
+git remote set-url origin https://github.com/USER_NAME/YOUR_PLATFORM
+mix do deps.get + compile
+mix fs_new.rename YOUR_APP
+cp .env.template .env
+script/setup
+mix test
+```
+
+Before pushing changes, setup GitHub pages `https://github.com/USER_NAME/YOUR_PLATFORM/settings/pages`
+with the build source for GitHub Actions.
+
 ---
 <!-- fire_starter:end -->
 
