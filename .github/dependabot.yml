@@ -8,4 +8,10 @@ updates:
   - package-ecosystem: "mix"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
+    cooldown:
+        default-days: 7
+    groups:
+      monthly-batch:
+        patterns:
+          - "*"
