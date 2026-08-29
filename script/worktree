@@ -58,7 +58,7 @@ symlink_if_exists .env
 # .env is only symlinked above, so re-load the environment here rather than
 # relying on the values mise injected when this task started.
 mise trust --quiet
-eval $(mise env --quiet)
+eval "$(mise env --quiet)"
 create_env_local
 # Trust new .env.local
 mise trust --quiet

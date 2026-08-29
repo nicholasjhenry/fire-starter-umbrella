@@ -5,4 +5,4 @@
 set -e
 
 NODE_NAME=${NODE_NAME:-$COMPOSE_PROJECT_NAME}
-iex --name $NODE_NAME@127.0.0.1 --cookie mycookie -S mix phx.server
+iex --name "$NODE_NAME"@127.0.0.1 --cookie mycookie -S mix phx.server
