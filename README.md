@@ -78,8 +78,7 @@ mise run setup
 ## Documentation
 
 ```sh
-mix docs
-mix docs.open
+mix docs --open
 ```
 
 ## Provisioning
