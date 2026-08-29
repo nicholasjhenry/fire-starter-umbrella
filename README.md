@@ -43,7 +43,7 @@ git remote set-url origin https://github.com/USER_NAME/YOUR_PLATFORM
 mix do deps.get + compile
 mix fs_new.rename YOUR_APP
 cp .env.template .env
-script/setup
+mise run setup
 mix test
 ```
 
@@ -72,7 +72,7 @@ Execute the following:
 ```sh
 cp .env.template .env
 # No configuration required
-script/setup
+mise run setup
 ```
 
 ## Documentation

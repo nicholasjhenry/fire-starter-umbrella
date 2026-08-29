@@ -1,18 +1,17 @@
-#!/bin/bash
-#
-# Runs a service container.
-#
+#!/usr/bin/env bash
+#MISE description="Run a service container"
+#MISE depends=["release:build"]
+#USAGE flag "-p --port <port>" help="Host port to publish the container on" default="4000"
 
 set -e
 
-cd "$(dirname "$0")/../.."
-
+port="${usage_port:-4000}"
 
 docker container run \
   --rm \
   --interactive \
   --tty \
-  --publish 4000:4000 \
+  --publish "${port}:4000" \
   --name fire-starter-web \
   --env PHX_HOST=localhost \
   --env PORT=4000 \

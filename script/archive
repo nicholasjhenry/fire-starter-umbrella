@@ -1,11 +1,6 @@
 #!/bin/sh
-
-# script/archive: Cleans up the project when archived
+#MISE description="Clean up the project when archived"
 
 set -e
-
-cd "$(dirname "$0")/.."
-
-eval "$(mise env)"
 
 docker compose down --volumes --remove-orphans

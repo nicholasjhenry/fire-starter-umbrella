@@ -1,12 +1,8 @@
 #!/bin/sh
-
-# script/update: Update application to run for its current checkout.
+#MISE description="Update the application to run for its current checkout"
+#MISE depends=["bootstrap"]
 
 set -e
-
-cd "$(dirname "$0")/.."
-
-script/bootstrap
 
 docker compose up -d
 

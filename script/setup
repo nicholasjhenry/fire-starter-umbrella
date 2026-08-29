@@ -1,14 +1,8 @@
 #!/bin/sh
-
-# script/setup: Set up application for the first time after cloning, or set it
-#               back to the initial first unused state.
+#MISE description="Set up the application for the first time after cloning, or reset it to its initial unused state"
+#MISE depends=["bootstrap"]
 
 set -e
-
-cd "$(dirname "$0")/.."
-eval "$(mise env)"
-
-script/bootstrap
 
 docker compose up -d --wait
 

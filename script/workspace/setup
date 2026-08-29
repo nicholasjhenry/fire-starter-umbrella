@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+#MISE description="Create and set up a test workspace in a git worktree"
+#USAGE arg "[base_branch]" help="Branch to create the test workspace from" default="develop"
+
+set -e
+
+WORKSPACE_NAME="${CONDUCTOR_WORKSPACE_NAME:-workspace_demo}"
+BASE_PORT="${CONDUCTOR_PORT:-55100}"
+WORKSPACE_DIR=".conductor/demo"
+BRANCH_NAME="demo"
+BASE_BRANCH="${usage_base_branch:-develop}"
+
+echo "Setting up test workspace..."
+
+# Create workspace directory
+mkdir -p .conductor
+
+# Export environment variables
+export CONDUCTOR_WORKSPACE_NAME="$WORKSPACE_NAME"
+export CONDUCTOR_PORT="$BASE_PORT"
+
+echo "Environment variables set:"
+echo "  CONDUCTOR_WORKSPACE_NAME=$CONDUCTOR_WORKSPACE_NAME"
+echo "  CONDUCTOR_PORT=$CONDUCTOR_PORT"
+
+# Create git worktree
+echo "Creating git worktree at $WORKSPACE_DIR..."
+git worktree add -b "$BRANCH_NAME" "$WORKSPACE_DIR" "$BASE_BRANCH"
+
+# Change to workspace directory and run setup
+cd "$WORKSPACE_DIR"
+
+# The worktree carries its own mise.toml, which has to be trusted before its
+# tasks can be run.
+mise trust --quiet
+
+echo "Running worktree setup..."
+mise run worktree
+
+echo "Running workspace setup..."
+mise run setup
+
+echo ""
+echo "✓ Workspace setup complete!"
+echo ""
+echo "To use this workspace:"
+echo "  cd $WORKSPACE_DIR"
+echo "  mise run server"

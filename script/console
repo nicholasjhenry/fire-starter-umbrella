@@ -1,27 +1,18 @@
 #!/bin/sh
-
-# script/console: Launch a console for the application. Optionally allow an
-#                 environment to be passed in to let the script handle the
-#                 specific requirements for connecting to a console for that
-#                 environment.
+#MISE description="Launch a console for the application, locally or against a remote environment"
+#USAGE arg "[environment]" help="Environment to connect to" default="development" {
+#USAGE   choices "development" "production"
+#USAGE }
 
 set -e
 
-cd "$(dirname "$0")/.."
+environment="${usage_environment:-development}"
 
-if [ -n "$1" ]; then
-    # use first argument as an environment name. Use this to decide how to connect
-    # to the appropriate console.
-    if [ "$1" = "production" ]; then
-        echo "==> Is SSH setup? fly ssh issue --agent"
-        fly ssh console --pty -C "/app/bin/fire_fly remote"
-    else
-        echo "==> Sorry, I don't know how to connect to the '$1' environment."
-        exit 1
-    fi
+if [ "$environment" = "production" ]; then
+    echo "==> Is SSH setup? fly ssh issue --agent"
+    fly ssh console --pty -C "/app/bin/fire_fly remote"
 else
-    # no argument provided, so just run the local console in the development
-    # environment. Ensure the application is up to date first.
-    script/update
+    # Ensure the application is up to date before starting the local console.
+    mise run update
     iex -S mix
 fi

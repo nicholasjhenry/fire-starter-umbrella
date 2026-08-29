@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#MISE description="Archive and remove the test workspace"
+
+set -e
+
+WORKSPACE_NAME="${CONDUCTOR_WORKSPACE_NAME:-workspace_demo}"
+BASE_PORT="${CONDUCTOR_PORT:-55100}"
+WORKSPACE_DIR=".conductor/demo"
+BRANCH_NAME="demo"
+
+echo "Archive up test workspace..."
+
+# Export environment variables for the archive task
+export CONDUCTOR_WORKSPACE_NAME="$WORKSPACE_NAME"
+export CONDUCTOR_PORT="$BASE_PORT"
+
+# Run the archive task from inside the workspace
+if [ -d "$WORKSPACE_DIR" ]; then
+    (
+        cd "$WORKSPACE_DIR"
+        mise trust --quiet
+        echo "Running archive task..."
+        mise run archive
+    )
+fi
+
+echo "Removing git worktree..."
+git worktree remove "$WORKSPACE_DIR" 2>/dev/null || true
+
+echo "Deleting branch..."
+git branch -D "$BRANCH_NAME" 2>/dev/null || true
+
+echo ""
+echo "✓ Workspace archive complete!"
