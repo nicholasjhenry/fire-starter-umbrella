@@ -1,14 +1,8 @@
 #!/bin/sh
-
-# script/server: Launch the application and any extra required processes
-#                locally.
+#MISE description="Launch the application and any extra required processes locally"
+#MISE depends=["update"]
 
 set -e
-
-cd "$(dirname "$0")/.."
-
-# ensure everything in the app is up to date.
-script/update
 
 NODE_NAME=${NODE_NAME:-$COMPOSE_PROJECT_NAME}
 iex --name $NODE_NAME@127.0.0.1 --cookie mycookie -S mix phx.server

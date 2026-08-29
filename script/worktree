@@ -1,9 +1,5 @@
 #!/bin/sh
-
-# script/worktree: Setup for working in a git worktree
-#
-
-cd "$(dirname "$0")/.."
+#MISE description="Set up the current git worktree with linked config, a scoped .env.local, and copied build artifacts"
 
 symlink_if_exists() {
     filename="$1"
@@ -46,12 +42,12 @@ create_env_local() {
 
     port=$((conductor_port + 1))
 
-    cat >.env.local <<EOF
+    cat >.env.local <<ENV_LOCAL
 COMPOSE_PROJECT_NAME=${compose_project_name}-${workspace_name}
 NODE_NAME=${workspace_name}
 DATABASE_PORT=${conductor_port}
 PORT=${port}
-EOF
+ENV_LOCAL
 
     echo "==> Wrote .env.local."
 }
@@ -59,7 +55,8 @@ EOF
 symlink_if_exists .claude
 symlink_if_exists .env
 
-# Load existing .env first to generate .env.local
+# .env is only symlinked above, so re-load the environment here rather than
+# relying on the values mise injected when this task started.
 mise trust --quiet
 eval $(mise env --quiet)
 create_env_local

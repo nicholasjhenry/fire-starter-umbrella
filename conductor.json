@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "setup": "script/worktree; script/setup",
-    "run": "script/server",
-    "archive": "script/archive"
+    "setup": "mise run worktree; mise run setup",
+    "run": "mise run server",
+    "archive": "mise run archive"
   }
 }

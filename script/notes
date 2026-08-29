@@ -1,20 +1,14 @@
 #!/bin/bash
-
-# script/notes: Lists NOTE|FIXME|TODO of source files in the current directory.
-#               Pattern and path can be overridden by passing them as arguments.
-#
-#               Usage: script/notes [pattern] [path]
+#MISE description="List NOTE, FIXME and TODO annotations in source files"
+#USAGE arg "[pattern]" help="Regex pattern to search for" default="\\b(NOTE|FIXME|TODO)\\b"
+#USAGE arg "[path]" help="Path to search" default="."
 
 set -euo pipefail
 
-pattern='\b(NOTE|FIXME|TODO)\b'
+default_pattern='\b(NOTE|FIXME|TODO)\b'
 
-pattern_arg="${1:-}"
-search_root="${2:-.}"
-
-if [[ -n "$pattern_arg" ]]; then
-    pattern="$pattern_arg"
-fi
+pattern="${usage_pattern:-$default_pattern}"
+search_root="${usage_path:-.}"
 
 rg "$pattern" -n --color=always --no-heading -A 2 "$search_root" |
     awk '

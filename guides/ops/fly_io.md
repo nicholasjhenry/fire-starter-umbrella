@@ -5,8 +5,7 @@ Provisioning [Fly.io](https://fly.io/) with [Managed Postgres](https://fly.io/do
 ## Verify Locally
 
 ```sh
-script/release/build
-script/release/server
+mise run release:server
 ```
 
 ## Provision Managed Postgres
